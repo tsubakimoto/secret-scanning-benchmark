@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Secret Scanning Benchmark</title>
+</head>
+
+<body>
+  <h1>GitHub Secret Scanning Benchmark</h1>
+  <button onclick="run()">Call Web API with secret</button>
+  <p><code id="result">...</code></p>
+
+  <script>
+    function run() {
+      fetch('https://func-secret-scanning.azurewebsites.net/api/users?name=tsubakimoto&code=Zi_IYibyqzWFITUHSaEku_vx9YlaYYGypHVRqBLsIMSlAzFugCUNOQ==')
+        .then(response => response.text())
+        .then(text => document.getElementById('result').innerText = text)
+        .catch(error => console.error(error));
+    }
+  </script>
+</body>
+
+</html>
